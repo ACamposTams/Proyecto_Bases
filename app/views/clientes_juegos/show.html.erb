@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id juego:</strong>
+  <%= @clientes_juego.id_juego %>
+</p>
+
+<p>
+  <strong>Id cliente:</strong>
+  <%= @clientes_juego.id_cliente %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @clientes_juego.total %>
+</p>
+
+<%= link_to 'Edit', edit_clientes_juego_path(@clientes_juego) %> |
+<%= link_to 'Back', clientes_juegos_path %>

@@ -1,0 +1,31 @@
+<div class="row">
+  <nav class="top-bar column" data-topbar>
+ 
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="/">
+              <i class="fi-play-video"></i> Gamers Store
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+      </ul>
+ 
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><%=link_to "Juegos", '/juegos#index' %></li>
+          <li><%=link_to "Consolas", '/consolas#index' %></li>
+          <li><%=link_to "Coleccionables", '/coleccionables#index' %></li>
+          <%if signed_in?%>
+          <li><%=link_to current_comprador.nombre, edit_comprador_registration_path%></li>
+          <li><%=link_to "Logout", destroy_comprador_session_path, method: :delete %></li>
+          <%else%>
+          <li><%=link_to "Registro", new_comprador_registration_path%></li>
+          <li><%=link_to "Login", new_comprador_session_path%></li>
+          <%end%>
+        </ul>
+      </section>
+ 
+    </nav>
+</div>

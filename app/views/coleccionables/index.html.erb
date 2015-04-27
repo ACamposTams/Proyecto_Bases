@@ -1,0 +1,52 @@
+<h4 class="column">Coleccionables Disponibles</h4>
+<div class="column">
+  <ul class="movies-grid no-bullet row">
+    <% @coleccionables.order(:oid , :asc).find_each do |coleccionable| %>
+      <li class="large-3 medium-4 small-12 column">
+        <div class="movie-card padly">
+        <%= link_to coleccionable do %>
+            <%= image_tag coleccionable.poster %>
+          <% end %>
+          <div class="movie-info ell glassy-bg padmy padlx">
+            <div class="title">
+              <h6><%= coleccionable.nombre %> </h6>
+            </div>
+            <p class="left price label movie-label radius">$ <%= coleccionable.precio %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<!--
+<h1>Listing coleccionables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Marca</th>
+      <th>Precio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coleccionables.each do |coleccionable| %>
+      <tr>
+        <td><%= coleccionable.nombre %></td>
+        <td><%= coleccionable.marca %></td>
+        <td><%= coleccionable.precio %></td>
+        <td><%= link_to 'Show', coleccionable %></td>
+        <td><%= link_to 'Edit', edit_coleccionable_path(coleccionable) %></td>
+        <td><%= link_to 'Destroy', coleccionable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+-->
+
+<%= link_to 'New Coleccionable', new_coleccionable_path %>

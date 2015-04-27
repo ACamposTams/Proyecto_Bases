@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @tienda.direccion %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @tienda.telefono %>
+</p>
+
+<%= link_to 'Edit', edit_tienda_path(@tienda) %> |
+<%= link_to 'Back', tiendas_path %>

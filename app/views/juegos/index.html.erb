@@ -1,0 +1,51 @@
+<h4 class="column">Juegos Disponibles</h4>
+<div class="column">
+  <ul class="movies-grid no-bullet row">
+    <% @juegos.order(:oid , :asc).find_each do |juego| %>
+      <li class="large-3 medium-8 small-6 column">
+        <%= link_to juego do %>
+            <%= image_tag juego.poster %>
+          <% end %>
+          <div class="movie-info ell glassy-bg padmy padlx">
+            <div class="title">
+              <h6><%= juego.titulo %> <span>(<%= juego.anio %>)</span></h6>
+            </div>
+            <p class="left price label movie-label radius">$ <%= juego.precio %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<!--<h1>Listing juegos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Publisher</th>
+      <th>Anio</th>
+      <th>Precio</th>
+      <th>Consola</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @juegos.each do |juego| %>
+      <tr>
+        <td><%= juego.titulo %></td>
+        <td><%= juego.publisher %></td>
+        <td><%= juego.anio %></td>
+        <td><%= juego.precio %></td>
+        <td><%= juego.consola %></td>
+        <td><%= link_to 'Show', juego %></td>
+        <td><%= link_to 'Edit', edit_juego_path(juego) %></td>
+        <td><%= link_to 'Destroy', juego, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+-->
+<%= link_to 'New Juego', new_juego_path %>

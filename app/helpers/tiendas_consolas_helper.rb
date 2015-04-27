@@ -1,0 +1,2 @@
+module TiendasConsolasHelper
+end

@@ -1,0 +1,29 @@
+<h1>Listing clientes_juegos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id juego</th>
+      <th>Id cliente</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes_juegos.each do |clientes_juego| %>
+      <tr>
+        <td><%= clientes_juego.id_juego %></td>
+        <td><%= clientes_juego.id_cliente %></td>
+        <td><%= clientes_juego.total %></td>
+        <td><%= link_to 'Show', clientes_juego %></td>
+        <td><%= link_to 'Edit', edit_clientes_juego_path(clientes_juego) %></td>
+        <td><%= link_to 'Destroy', clientes_juego, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clientes juego', new_clientes_juego_path %>

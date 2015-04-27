@@ -1,0 +1,29 @@
+<%= form_for(@coleccionable) do |f| %>
+  <% if @coleccionable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coleccionable.errors.count, "error") %> prohibited this coleccionable from being saved:</h2>
+
+      <ul>
+      <% @coleccionable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :marca %><br>
+    <%= f.text_field :marca %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.number_field :precio %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

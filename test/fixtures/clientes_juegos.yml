@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_juego: 
+  id_cliente: 
+  total: 
+
+two:
+  id_juego: 
+  id_cliente: 
+  total: 
