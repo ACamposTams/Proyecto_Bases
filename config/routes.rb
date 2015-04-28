@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :orders
+
+  resources :cart_productos
+
+  resources :carts
+
+  resources :empleados
+
   devise_for :compradors, :controllers => { registrations: 'registrations'}
 
   resources :tiendas_consolas

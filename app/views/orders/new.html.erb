@@ -1,0 +1,34 @@
+<div class="depot_form">
+<fieldset>
+<legend>Si su información es correcta continúe </legend>
+
+<%if signed_in?%>
+
+<div class="large-14 small-12 column">
+  <h3>
+  Nombre: <%= @comprador.nombre%>
+  </h3>
+  <h3>
+  Dirección: <%= @comprador.direccion %>
+  </h3>
+  <h3>
+  Email: <%= @comprador.email %>
+  </h3>
+  <h3>
+   Teléfono: <%= @comprador.telefono %>
+  </h3>
+  <h3>
+  Total: <%= number_to_currency(@cart.total_price) %>
+  </h3>
+</div>
+<%= render 'form' %>
+</fieldset>
+</div>
+
+<%else%>
+
+<h3>
+No has iniciado sesión
+</h3>
+
+<%end%>

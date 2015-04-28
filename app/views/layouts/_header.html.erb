@@ -18,6 +18,7 @@
           <li><%=link_to "Consolas", '/consolas#index' %></li>
           <li><%=link_to "Coleccionables", '/coleccionables#index' %></li>
           <%if signed_in?%>
+          <li><%= link_to "Carrito", '#' %></li>
           <li><%=link_to current_comprador.nombre, edit_comprador_registration_path%></li>
           <li><%=link_to "Logout", destroy_comprador_session_path, method: :delete %></li>
           <%else%>
