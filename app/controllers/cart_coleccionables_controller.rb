@@ -43,7 +43,11 @@ class CartColeccionablesController < ApplicationController
 
   def destroy
     @cart_coleccionable.destroy
-    respond_with(@cart_coleccionable)
+    session[:cart_coleccionable_id] = nil
+    respond_to do |format|
+      format.html {redirect_to @cart_coleccionable.cart, notice: 'Se ha eliminado el elemento'}
+      format.json {head :no_content}
+    end
   end
 
   private

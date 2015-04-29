@@ -14,6 +14,16 @@ class Cart < ActiveRecord::Base
 		current_item
 	end
 
+	def delete_product(juego_id)
+		no_item = cart_productos.find_by_juego_id(juego_id)
+		if not_item
+			no_item.cantidad -= 1
+		else
+			no_item = cart_productos.build(juego_id: juego_id)
+		end
+		no_item
+	end
+
 	def add_consola(consola_id)
 		current_consola = cart_consolas.find_by_consola_id(consola_id)
 		if current_consola

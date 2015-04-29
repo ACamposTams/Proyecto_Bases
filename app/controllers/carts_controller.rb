@@ -4,12 +4,13 @@ class CartsController < ApplicationController
   respond_to :html
 
   def index
-    @carts = Cart.all
-    respond_with(@carts)
+    @cart = current_cart
+    respond_to do |format|
+      format.html {redirect_to current_cart}
+    end
   end
 
   def show
-    respond_with(@cart)
   end
 
   def new

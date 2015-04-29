@@ -4,15 +4,17 @@ class CartProductosController < ApplicationController
   respond_to :html
 
   def index
-    juego = Juego.find(params[:juego_id])
+    @cart_productos = CartProducto.all
+    respond_with(@cart_productos)
   end
 
   def show
-    juego = Juego.find(params[:juego_id])
+    respond_with(@cart_producto)
   end
 
   def new
-    juego = Juego.find(params[:juego_id])
+    @cart_producto = CartProducto.new
+    respond_with(@cart_producto)
   end
 
   def edit
@@ -40,7 +42,12 @@ class CartProductosController < ApplicationController
   end
 
   def destroy
-    juego = Juego.find(params[:juego_id])
+    @cart_producto.destroy
+    session[:cart_producto_id] = nil
+    respond_to do |format|
+      format.html {redirect_to @cart_producto.cart, notice: 'Se ha eliminado el elemento'}
+      format.json {head :no_content}
+    end
   end
 
   private

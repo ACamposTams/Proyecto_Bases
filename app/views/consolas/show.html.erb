@@ -8,10 +8,16 @@
   </h3>
 </div>
 
+<div class="large-9 small-12 column">
+  <h3>
+    <p class="left price label movie-label radius">$ <%= @consola.precio %></p>
+  </h3>
+</div>
+
 <% if signed_in?%>
 <div class="large-9 small-12 column">
   <h3>
-    <i class="fi-shopping-cart"> <%= button_to 'Add to Cart', cart_consolas_path(consola_id: @consola)%> </i>
+    <%= button_to 'Add to Cart', cart_consolas_path(consola_id: @consola)%>
   </h3>
 </div>
 <%end%>

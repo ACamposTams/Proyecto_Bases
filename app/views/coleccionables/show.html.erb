@@ -8,10 +8,22 @@
   </h3>
 </div>
 
+<div class="large-9 small-12 column">
+  <h3>
+    <%= @coleccionable.marca %>
+  </h3>
+</div>
+
+<div class="large-9 small-12 column">
+  <h3>
+    <p class="left price label movie-label radius">$ <%= @coleccionable.precio %></p>
+  </h3>
+</div>
+
 <%if signed_in?%>
 <div class="large-9 small-12 column">
   <h3>
-    <i class="fi-shopping-cart"> <%= button_to 'Add to Cart', cart_coleccionables_path(coleccionable_id: @coleccionable)%> </i>
+    <%= button_to 'Add to Cart', cart_coleccionables_path(coleccionable_id: @coleccionable)%>
   </h3>
 </div>
 <%end%>

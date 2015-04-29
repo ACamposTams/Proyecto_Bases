@@ -43,7 +43,11 @@ class CartConsolasController < ApplicationController
 
   def destroy
     @cart_consola.destroy
-    respond_with(@cart_consola)
+    session[:cart_consola_id] = nil
+    respond_to do |format|
+      format.html {redirect_to @cart_consola.cart, notice: 'Se ha eliminado el elemento'}
+      format.json {head :no_content}
+    end
   end
 
   private
