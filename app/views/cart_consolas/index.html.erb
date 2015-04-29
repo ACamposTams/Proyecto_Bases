@@ -1,0 +1,30 @@
+<h1>Listing cart_consolas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Consola</th>
+      <th>Cart</th>
+      <th>Cantidad</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart_consolas.each do |cart_consola| %>
+      <tr>
+        <td><%= cart_consola.consola_id %></td>
+        <td><%= cart_consola.cart_id %></td>
+        <td><%= cart_consola.cantidad %></td>
+        <td><%= link_to 'Show', cart_consola %></td>
+        <td><%= link_to 'Edit', edit_cart_consola_path(cart_consola) %></td>
+        <td><%= link_to 'Destroy', cart_consola, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cart consola', new_cart_consola_path %>

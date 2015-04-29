@@ -1,0 +1,2 @@
+module CartConsolasHelper
+end

@@ -8,6 +8,14 @@
   </h3>
 </div>
 
+<%if signed_in?%>
+<div class="large-9 small-12 column">
+  <h3>
+    <i class="fi-shopping-cart"> <%= button_to 'Add to Cart', cart_coleccionables_path(coleccionable_id: @coleccionable)%> </i>
+  </h3>
+</div>
+<%end%>
+
 
 <!--
 <p id="notice"><%= notice %></p>

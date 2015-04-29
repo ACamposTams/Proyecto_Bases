@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428151446) do
+ActiveRecord::Schema.define(version: 20150428224358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_coleccionables", force: true do |t|
+    t.integer  "coleccionable_id"
+    t.integer  "cart_id"
+    t.integer  "cantidad",         default: 1
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cart_consolas", force: true do |t|
+    t.integer  "consola_id"
+    t.integer  "cart_id"
+    t.integer  "cantidad",   default: 1
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cart_productos", force: true do |t|
     t.integer  "juego_id"
@@ -129,6 +147,12 @@ ActiveRecord::Schema.define(version: 20150428151446) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "cart_coleccionables", "carts", name: "cart_coleccionables_cart_id_fk"
+  add_foreign_key "cart_coleccionables", "coleccionables", name: "cart_coleccionables_coleccionable_id_fk"
+
+  add_foreign_key "cart_consolas", "carts", name: "cart_consolas_cart_id_fk"
+  add_foreign_key "cart_consolas", "consolas", name: "cart_consolas_consola_id_fk"
 
   add_foreign_key "cart_productos", "carts", name: "cart_productos_cart_id_fk"
   add_foreign_key "cart_productos", "juegos", name: "cart_productos_juego_id_fk"

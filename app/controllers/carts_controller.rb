@@ -47,6 +47,6 @@ class CartsController < ApplicationController
     end
 
     def cart_params
-      params.[:cart]
+      params.require(:cart).permit(:comprador_id)
     end
 end

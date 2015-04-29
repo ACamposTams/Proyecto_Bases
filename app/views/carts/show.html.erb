@@ -1,6 +1,7 @@
 <% if signed_in? %>
 
 <h2>Tu Carrito de Compras</h2>
+<%if @cart.cart_productos %>
 <ul>
 <% @cart.cart_productos.each do |item| %>
 </ul>
@@ -17,14 +18,49 @@
   </h3>
 </div>
 <%end%>
+<ul>
+<%end%>
+<% @cart.cart_consolas.each do |item| %>
+</ul>
+<div class="large-3 small-12 column">
+  <%=image_tag item.consola.poster%>
+  <h3>
+    <%= item.consola.nombre %>
+  </h3>
+  <h3>
+    <%= item.cantidad %> copia
+  </h3>
+  <h3>
+    <%= number_to_currency(item.total_price) %>
+  </h3>
+</div>
+<%end%>
+<h3>
+<ul>
+<% @cart.cart_coleccionables.each do |item| %>
+</ul>
+<div class="large-3 small-12 column">
+  <%=image_tag item.coleccionable.poster%>
+  <h3>
+    <%= item.coleccionable.nombre %>
+  </h3>
+  <h3>
+    <%= item.cantidad %> copia
+  </h3>
+  <h3>
+    <%= number_to_currency(item.total_price) %>
+  </h3>
+</div>
+<%end%>
+
+<div class="large-3 small-12 column">
 <h3>
    Precio total: <%= number_to_currency(@cart.total_price) %>
-</h3>
-<%= button_to 'Checkout', new_order_path, method: :get %>
-</h3>
-<h3>
+   <%= button_to 'Checkout', new_order_path, method: :get %>
 <%= button_to 'Vacíar Carrito', @cart, method: :delete, confirm: '¿Estás Seguro?' %>
 </h3>
+
+</div>
 
 <%else%>
 

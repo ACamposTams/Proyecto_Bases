@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Consola:</strong>
+  <%= @cart_coleccionable.consola_id %>
+</p>
+
+<p>
+  <strong>Cart:</strong>
+  <%= @cart_coleccionable.cart_id %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @cart_coleccionable.cantidad %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @cart_coleccionable.order_id %>
+</p>
+
+<%= link_to 'Edit', edit_cart_coleccionable_path(@cart_coleccionable) %> |
+<%= link_to 'Back', cart_coleccionables_path %>

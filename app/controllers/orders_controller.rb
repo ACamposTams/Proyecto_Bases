@@ -14,14 +14,14 @@ class OrdersController < ApplicationController
 
   def new
     @cart = current_cart
-    if @cart.cart_productos.empty?
-      redirect_to store_url, notice: "Your cart is empty"
+    if @cart.cart_productos.empty? && @cart.cart_consolas.empty? && @cart.cart_coleccionables.empty?
+      redirect_to root_url, notice: "Your cart is empty"
       return
     end
 
     @comprador = current_comprador
     if @comprador == :null 
-      redirect_to juegos_path, notice: "No has iniciado sesión"
+      redirect_to root_url, notice: "No has iniciado sesión"
       return
     end
 
@@ -36,10 +36,25 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.save
-    respond_with(@order)
+    @order = Order.new(params[:order])
+    @order.comprador_id = current_comprador.id
+    @order.add_cart_productos_from_cart(current_cart)
+    @order.add_cart_consolas_from_cart(current_cart)
+    @order.add_cart_coleccionables_from_cart(current_cart)
+
+respond_to do |format|
+  if @order.save
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
+    format.html {redirect_to root_url, notice: 'Gracias por su compra'}
+    format.json {render json: @order, status: :created, location: @order}
+  else
+    @cart = current_cart
+    format.html {render action: "new"}
+    format.json {render json: @orde_errors,status: :unprocessable_entity}
   end
+end
+end
 
   def update
     @order.update(order_params)
@@ -57,6 +72,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:nombre, :direccion, :email, :telefono)
+      params.require(:order).permit()
     end
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :cart_coleccionables
+
+  resources :cart_consolas
+
   resources :orders
 
   resources :cart_productos

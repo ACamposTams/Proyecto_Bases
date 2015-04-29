@@ -1,0 +1,33 @@
+<%= form_for(@cart_coleccionable) do |f| %>
+  <% if @cart_coleccionable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cart_coleccionable.errors.count, "error") %> prohibited this cart_coleccionable from being saved:</h2>
+
+      <ul>
+      <% @cart_coleccionable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :consola_id %><br>
+    <%= f.number_field :consola_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cart_id %><br>
+    <%= f.number_field :cart_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :order_id %><br>
+    <%= f.number_field :order_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

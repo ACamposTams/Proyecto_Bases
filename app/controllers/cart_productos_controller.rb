@@ -4,20 +4,19 @@ class CartProductosController < ApplicationController
   respond_to :html
 
   def index
-    @cart_productos = CartProducto.all
-    respond_with(@cart_productos)
+    juego = Juego.find(params[:juego_id])
   end
 
   def show
-    respond_with(@cart_producto)
+    juego = Juego.find(params[:juego_id])
   end
 
   def new
-    @cart_producto = CartProducto.new
-    respond_with(@cart_producto)
+    juego = Juego.find(params[:juego_id])
   end
 
   def edit
+    juego = Juego.find(params[:juego_id])
   end
 
   def create
@@ -37,13 +36,11 @@ class CartProductosController < ApplicationController
   end
 
   def update
-    @cart_producto.update(cart_producto_params)
-    respond_with(@cart_producto)
+    juego = Juego.find(params[:juego_id])
   end
 
   def destroy
-    @cart_producto.destroy
-    respond_with(@cart_producto)
+    juego = Juego.find(params[:juego_id])
   end
 
   private

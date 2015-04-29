@@ -1,0 +1,31 @@
+<h1>Listing cart_coleccionables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Consola</th>
+      <th>Cart</th>
+      <th>Cantidad</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart_coleccionables.each do |cart_coleccionable| %>
+      <tr>
+        <td><%= cart_coleccionable.consola_id %></td>
+        <td><%= cart_coleccionable.cart_id %></td>
+        <td><%= cart_coleccionable.cantidad %></td>
+        <td><%= cart_coleccionable.order_id %></td>
+        <td><%= link_to 'Show', cart_coleccionable %></td>
+        <td><%= link_to 'Edit', edit_cart_coleccionable_path(cart_coleccionable) %></td>
+        <td><%= link_to 'Destroy', cart_coleccionable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cart coleccionable', new_cart_coleccionable_path %>
