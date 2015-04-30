@@ -23,4 +23,5 @@ class Order < ActiveRecord::Base
 			cart_coleccionables << item
 		end
 	end
+
 end

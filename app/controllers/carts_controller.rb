@@ -45,6 +45,13 @@ class CartsController < ApplicationController
   private
     def set_cart
       @cart = Cart.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+  logger.error "Intento de accesar a un carro no válido"
+  redirect_to root_url, notice: 'Invalid cart'
+rescue ActiveRecord::StatementInvalid
+  logger.error "Intento de accesar a un carro no válido"
+  redirect_to root_url, notice: 'Invalid cart'
+
     end
 
     def cart_params

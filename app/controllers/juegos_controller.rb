@@ -65,10 +65,16 @@ class JuegosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_juego
       @juego = Juego.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Intento de accesar a un carro no válido"
+        redirect_to root_url, notice: 'Juego no válido'
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Intento de accesar a un carro no válido"
+        redirect_to root_url, notice: 'Juego no válido'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def juego_params
-      params.require(:juego).permit(:titulo, :publisher, :anio, :precio, :consola)
+      params.require(:juego).permit(:titulo, :publisher, :anio, :precio, :consola, :poster, :video)
     end
 end

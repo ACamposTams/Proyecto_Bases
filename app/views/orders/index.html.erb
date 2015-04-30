@@ -3,10 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Email</th>
-      <th>Telefono</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,10 +10,6 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.nombre %></td>
-        <td><%= order.direccion %></t>
-        <td><%= order.email %></td>
-        <td><%= order.telefono %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

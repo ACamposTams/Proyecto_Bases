@@ -65,6 +65,12 @@ class ConsolasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_consola
       @consola = Consola.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        logger.error "Intento de accesar a un carro no válido"
+        redirect_to root_url, notice: 'Consola no válida'
+      rescue ActiveRecord::StatementInvalid
+        logger.error "Intento de accesar a un carro no válido"
+        redirect_to root_url, notice: 'Consola no válida'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

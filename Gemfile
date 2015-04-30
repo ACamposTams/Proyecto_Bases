@@ -20,11 +20,11 @@ gem 'foreigner'
 
 gem 'devise'
 
+gem 'prawn'
+
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 
-gem 'wicked_pdf'
-
-gem 'wkhtmltopdf-binary'
+gem 'thinreports'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

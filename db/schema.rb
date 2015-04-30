@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428224358) do
+ActiveRecord::Schema.define(version: 20150430032452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20150428224358) do
     t.datetime "updated_at"
     t.string   "nombre",                              null: false
     t.string   "direccion"
-    t.integer  "telefono"
+    t.string   "telefono"
   end
 
   add_index "compradors", ["email"], name: "index_compradors_on_email", unique: true, using: :btree
@@ -112,9 +112,11 @@ ActiveRecord::Schema.define(version: 20150428224358) do
   add_index "juegos", ["consola_id"], name: "index_juegos_on_consola_id", using: :btree
 
   create_table "orders", force: true do |t|
-    t.integer  "comprador_id", null: false
+    t.integer  "comprador_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total"
+    t.boolean  "enviado",      default: false
   end
 
   create_table "tiendas", force: true do |t|

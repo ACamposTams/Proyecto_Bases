@@ -1,29 +1,44 @@
-<div class="depot_form">
-<fieldset>
-<legend>Si su información es correcta continúe </legend>
+<h3>Si su información es correcta continúe </h3>
 
 <%if signed_in?%>
 
 <div class="large-14 small-12 column">
-  <h3>
+  <h4>
   Nombre: <%= @comprador.nombre%>
-  </h3>
-  <h3>
+  </h4>
+  <h4>
   Dirección: <%= @comprador.direccion %>
-  </h3>
-  <h3>
+  </h4>
+  <h4>
   Email: <%= @comprador.email %>
-  </h3>
-  <h3>
+  </h4>
+  <h4>
    Teléfono: <%= @comprador.telefono %>
-  </h3>
-  <h3>
+  </h4>
+  <h4>
+  <center>Lista de Productos:</center>
+  </h4>
+  <% @cart.cart_productos.each do |item| %>
+  <h4>
+    <center><%= item.juego.titulo %> Cantidad: <%= item.cantidad %> Subtotal: <%= number_to_currency(item.total_price) %></center>
+  </h4>
+  <%end%>
+  <% @cart.cart_consolas.each do |item| %>
+  <h4>
+    <center><%= item.consola.nombre %> Cantidad: <%= item.cantidad %> Subtotal: <%= number_to_currency(item.total_price) %></center>
+  </h4>
+  <%end%>
+  <% @cart.cart_coleccionables.each do |item| %>
+  <h4>
+    <center><%= item.coleccionable.nombre %> Cantidad: <%= item.cantidad %> Subtotal: <%= number_to_currency(item.total_price) %></center>
+  </h4>
+  <%end%>
+    <h3>
   Total: <%= number_to_currency(@cart.total_price) %>
   </h3>
 </div>
-<%= render 'form' %>
-</fieldset>
-</div>
+
+<%= button_to 'Continuar' , orders_path %>
 
 <%else%>
 
