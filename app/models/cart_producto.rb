@@ -6,4 +6,5 @@ class CartProducto < ActiveRecord::Base
 	def total_price
 		juego.precio * cantidad
 	end
+
 end

@@ -5,15 +5,16 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    respond_with(@orders)
+    @cart = Cart.all
   end
 
+  prawnto :prawn => { :top_margin => 75}
+
   def show
-    respond_with(@order)
+    @order = Order.find(params[:id])
   end
 
   def new
-
     @cart = current_cart
     if @cart.cart_productos.empty? && @cart.cart_consolas.empty? && @cart.cart_coleccionables.empty?
       redirect_to root_url, notice: "Your cart is empty"

@@ -24,4 +24,7 @@ class Order < ActiveRecord::Base
 		end
 	end
 
+	def comprador
+		comprador = Comprador.find(comprador_id)
+	end
 end

@@ -48,5 +48,8 @@
 
 <br>
 -->
-
+<%if current_comprador%>
+<%if current_comprador.nombre == "Alfredo Campos Tams"%>
 <%= link_to 'New Consola', new_consola_path %>
+<%end%>
+<%end%>

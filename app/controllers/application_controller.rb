@@ -13,4 +13,8 @@ rescue ActiveRecord::RecordNotFound
 	cart
 end
 
+def record_not_found
+	redirect to '/404'
+end
+
 end

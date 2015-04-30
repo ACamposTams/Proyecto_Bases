@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  resources :reportes
+
   resources :cart_coleccionables
 
   resources :cart_consolas
@@ -91,4 +93,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match ":url" => "juegos#index", :constraints => {:url => /.*/}, via: [:get,:post]
+
 end

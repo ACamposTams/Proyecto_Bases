@@ -20,7 +20,7 @@ gem 'foreigner'
 
 gem 'devise'
 
-gem 'prawn'
+gem 'prawnto_2', :require => "prawnto"
 
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 

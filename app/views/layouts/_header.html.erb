@@ -19,6 +19,9 @@
           <li><%=link_to "Consolas", '/consolas#index' %></li>
           <li><%=link_to "Coleccionables", '/coleccionables#index' %></li>
           <%if signed_in?%>
+          <%if current_comprador.nombre == "Alfredo Campos Tams" %>
+          <li><%= link_to "Reportes", orders_path(@order, :format => 'pdf') %></li>
+          <%end%>
           <li><%= link_to "Carrito", carts_path , method: :show %></li>
           <li><%=link_to current_comprador.nombre, edit_comprador_registration_path%></li>
           <li><%=link_to "Logout", destroy_comprador_session_path, method: :delete %></li>
@@ -27,8 +30,6 @@
           <li><%=link_to "Login", new_comprador_session_path%></li>
           <%end%>
         </ul>
-
-
 
       </section>
  

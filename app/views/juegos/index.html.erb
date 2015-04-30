@@ -48,4 +48,8 @@
 
 <br>
 -->
+<%if current_comprador%>
+<%if current_comprador.nombre == "Alfredo Campos Tams"%>
 <%= link_to 'New Juego', new_juego_path %>
+<%end%>
+<%end%>

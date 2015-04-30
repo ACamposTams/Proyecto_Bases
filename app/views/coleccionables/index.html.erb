@@ -49,4 +49,8 @@
 <br>
 -->
 
+<%if current_comprador%>
+<%if current_comprador.nombre == "Alfredo Campos Tams"%>
 <%= link_to 'New Coleccionable', new_coleccionable_path %>
+<%end%>
+<%end%>
